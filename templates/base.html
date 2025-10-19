@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Project Management Tool</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <div class="logo"><i class="fa-solid fa-diagram-project"></i> <span>Project Manager</span></div>
+    {% if session.get('name') %}
+      <div class="user-info">
+        <i class="fa-solid fa-user"></i> {{ session['name'] }}
+        <a href="{{ url_for('logout') }}" class="logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+      </div>
+    {% endif %}
+  </header>
+
+  {% if session.get('name') %}
+  <nav class="sidebar">
+    <ul>
+      <li><a href="{{ url_for('home') }}"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+      <li><a href="{{ url_for('projects') }}"><i class="fa-solid fa-folder"></i> Projects</a></li>
+    </ul>
+  </nav>
+  {% endif %}
+
+  <main class="main-content">
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

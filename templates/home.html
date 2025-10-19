@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h2><i class="fa-solid fa-house"></i> Dashboard</h2>
+
+<div class="dashboard-cards">
+  <div class="card">
+    <i class="fa-solid fa-folder-open"></i>
+    <h3>{{ projects|length }}</h3>
+    <p>Total Projects</p>
+  </div>
+</div>
+
+<h3 class="section-title">Your Projects</h3>
+<ul class="project-list">
+  {% for project in projects %}
+  <li class="project-item">
+    <i class="fa-solid fa-diagram-project"></i>
+    <span>{{ project['name'] }}</span>
+    <a href="{{ url_for('tasks', project_id=project['id']) }}" class="view-btn"><i class="fa-solid fa-eye"></i> View Tasks</a>
+  </li>
+  {% else %}
+  <p>No projects yet. <a href="{{ url_for('projects') }}">Create one!</a></p>
+  {% endfor %}
+</ul>
+{% endblock %}

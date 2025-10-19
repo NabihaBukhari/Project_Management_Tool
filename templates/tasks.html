@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<h2><i class="fa-solid fa-tasks"></i> Tasks</h2>
+
+<div class="form-card">
+  <form method="POST">
+    <input type="text" name="title" placeholder="Task name" required>
+    <button type="submit"><i class="fa-solid fa-plus"></i> Add Task</button>
+  </form>
+</div>
+
+<div class="task-list">
+  {% for task in tasks %}
+  <div class="task-card {{ task['status']|lower|replace(' ', '-') }}">
+    <div class="task-title"><i class="fa-solid fa-clipboard"></i> {{ task['title'] }}</div>
+    <div class="task-status">
+      <span>Status: {{ task['status'] }}</span>
+      <div class="status-actions">
+        <a href="{{ url_for('update_task', task_id=task['id'], status='In Progress') }}"><i class="fa-solid fa-play"></i></a>
+        <a href="{{ url_for('update_task', task_id=task['id'], status='Done') }}"><i class="fa-solid fa-check"></i></a>
+      </div>
+    </div>
+  </div>
+  {% else %}
+  <p>No tasks found for this project.</p>
+  {% endfor %}
+</div>
+<a href="{{ url_for('home') }}" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back</a>
+{% endblock %}
