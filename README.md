@@ -31,6 +31,7 @@ For existing users, enter your login details to access the dashboard.
 Run the view_db.py file: 
 python view_db.py (in terminal)
 This will display database activity and help you monitor actions on the website.
+<hr>
 
 API Endpoints Summary
 
@@ -66,6 +67,7 @@ Database: SQLite
 Frontend: HTML, CSS
 
 Version Control: Git
+<hr>
 
 Contact
 
