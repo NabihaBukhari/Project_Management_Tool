@@ -6,7 +6,6 @@ from database import get_db_connection, init_db
 app = Flask(__name__)
 app.secret_key = "your_secret_key"
 
-# Initialize database
 init_db()
 
 # --- HOME ---

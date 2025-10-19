@@ -9,7 +9,6 @@ def init_db():
     conn = get_db_connection()
     cur = conn.cursor()
 
-    # Create tables if not exist
     cur.execute('''CREATE TABLE IF NOT EXISTS users (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     name TEXT NOT NULL,
