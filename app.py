@@ -108,4 +108,4 @@ def update_task(task_id, status):
     return redirect(request.referrer)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
