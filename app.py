@@ -107,5 +107,5 @@ def update_task(task_id, status):
     conn.close()
     return redirect(request.referrer)
 
-if __name__ == '__main__':
-    app.run()
+# if __name__ == '__main__':
+#     app.run()
